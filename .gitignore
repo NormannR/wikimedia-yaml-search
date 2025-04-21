@@ -1,0 +1,61 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Packages
+*.egg
+*.egg-info/
+dist/
+build/
+*.spec
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+*.env
+
+# PyInstaller output
+*.exe
+*.dll
+*.so
+*.dmg
+*.pkg
+*.deb
+
+# Jupyter and IPython
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Logs and runtime files
+*.log
+*.pid
+
+# Pytest / coverage
+.cache/
+.coverage
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Editable build files
+*.egg-info/
+pip-wheel-metadata/
+__pypackages__/
+
+# YAML output folders (optional if generated during runs)
+search_*/
+
+# GitHub Actions cache (optional)
+.github/workflows/__pycache__/

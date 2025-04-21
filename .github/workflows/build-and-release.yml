@@ -1,0 +1,97 @@
+name: Build and Release (Cross-platform)
+
+on:
+  push:
+    tags:
+      - 'v*'  # Runs on version tags like v0.1.0, v1.2.3, etc.
+
+jobs:
+  build-windows:
+    name: Build .exe on Windows
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller
+          pip install .
+
+      - name: Build .exe with PyInstaller
+        run: |
+          pyinstaller src/wikimedia_yaml_search/cli.py --onefile --name wikimedia-yaml-search
+
+      - name: Upload .exe to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/wikimedia-yaml-search.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-linux:
+    name: Build executable on Linux
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller
+          pip install .
+
+      - name: Build Linux binary with PyInstaller
+        run: |
+          pyinstaller src/wikimedia_yaml_search/cli.py --onefile --name wikimedia-yaml-search
+
+      - name: Upload Linux binary to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/wikimedia-yaml-search
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-macos:
+    name: Build executable on macOS
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller
+          pip install .
+
+      - name: Build macOS binary with PyInstaller
+        run: |
+          pyinstaller src/wikimedia_yaml_search/cli.py --onefile --name wikimedia-yaml-search
+
+      - name: Upload macOS binary to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/wikimedia-yaml-search
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

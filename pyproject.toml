@@ -1,0 +1,25 @@
+[project]
+name = "wikimedia-yaml-search"
+version = "0.1.0"
+description = "Search and download images from Wikimedia Commons using YAML input."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Normann Rion", email = "normannrion@ik.com" }]
+dependencies = [
+    "requests",
+    "pyyaml"
+]
+requires-python = ">=3.7"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+wikimedia-yaml-search = "wikimedia_yaml_search.cli:main"
