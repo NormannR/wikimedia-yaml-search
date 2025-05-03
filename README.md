@@ -30,7 +30,7 @@ pip install -e .
 ### 📥 From GitHub Releases
 
 Precompiled binaries are available for Windows, Linux, and macOS:
-➡️ See the [Releases page](https://github.com/your-username/wikimedia-yaml-search/releases)
+➡️ See the [Releases page](https://github.com/NormannR/wikimedia-yaml-search/releases)
 
 ---
 
