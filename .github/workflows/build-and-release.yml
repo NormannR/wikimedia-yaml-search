@@ -30,7 +30,7 @@ jobs:
 
       - name: Build .exe with PyInstaller
         run: |
-          pyinstaller src/wikimedia_yaml_search/cli.py --onefile --name wikimedia-yaml-search
+          pyinstaller src/wikimedia_yaml_search/cli.py --onefile --name wikimedia-yaml-search --paths=src
 
       - name: Upload .exe to release
         uses: softprops/action-gh-release@v1
@@ -60,7 +60,7 @@ jobs:
 
       - name: Build Linux binary with PyInstaller
         run: |
-          pyinstaller src/wikimedia_yaml_search/cli.py --onefile --name wikimedia-yaml-search
+          pyinstaller src/wikimedia_yaml_search/cli.py --onefile --name wikimedia-yaml-search --paths=src
 
       - name: Upload Linux binary to release
         uses: softprops/action-gh-release@v1
@@ -90,7 +90,7 @@ jobs:
 
       - name: Build macOS binary with PyInstaller
         run: |
-          pyinstaller src/wikimedia_yaml_search/cli.py --onefile --name wikimedia-yaml-search
+          pyinstaller src/wikimedia_yaml_search/cli.py --onefile --name wikimedia-yaml-search --paths=src
 
       - name: Upload macOS binary to release
         uses: softprops/action-gh-release@v1

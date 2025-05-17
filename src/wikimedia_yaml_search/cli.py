@@ -11,3 +11,6 @@ def main():
     filename = args.filename
     limit = args.limit
     dl_commons_images(filename, limit=limit)
+
+if __name__ == "__main__":
+    main()
